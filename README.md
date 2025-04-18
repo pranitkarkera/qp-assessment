@@ -11,44 +11,44 @@ A Node.js Express backend for grocery management, containerized with Docker and 
 
 ## Getting Started
 
-### 1. Clone the Repository
+## 1. Clone the Repository
 ``git clone https://github.com/yourusername/grocery-backend.git
 cd grocery-backend``
 
-### 2. Docker Commands
-## Create a MongoDB Container with Volume
+## 2. Docker Commands
+### Create a MongoDB Container with Volume
 ``docker run -d --name mongodb -p 27017:27017 -v %cd%\mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro mongo:6``
 
-## Build Backend App Docker Image
+### Build Backend App Docker Image
 ``docker build -t backend-app .``
 
-## Run Backend App Container
+### Run Backend App Container
 ``docker run -d --name backend -p 3000:3000 --env-file .env --link mongodb backend-app``
 
-## List all containers
+### List all containers
 ``docker ps -a``
 
-## Enter container shell
+### Enter container shell
 ``docker exec -it mongodb sh``
 
-## MongoDB shell login	
+### MongoDB shell login	
 ``mongosh -u pranit -p pranit99 --authenticationDatabase cluster0``
 
-## Show logs
+### Show logs
 ``docker logs containername
   docker logs -f containername``
 
-## Remove running container
+### Remove running container
 ``docker rm -f containername``
 
-## Stop running container
+### Stop running container
 ``docker stop containername``
 
-### API Endpoints & Postman CRUD Data
+## API Endpoints & Postman CRUD Data
 
 ## Admin Endpoints
 
-## Create Grocery Item
+### Create Grocery Item
 POST /api/admin/items
 ``{
   "name": "Organic Apples",
@@ -58,31 +58,31 @@ POST /api/admin/items
 }
 ``
 
-## Get All Grocery Items
+### Get All Grocery Items
 GET /api/admin/items
 
-## Update Grocery Item
+### Update Grocery Item
 PUT /api/admin/items/{id}
 ``{
   "price": 3.49,
   "category": "Fresh Fruits"
 }
 ``
-## Update Inventory
+### Update Inventory
 PUT /api/admin/items/{id}/inventory
 ``{
   "inventory": 80
 }
 ``
 
-## Delete Grocery Item
+### Delete Grocery Item
 DELETE /api/admin/items/{id}
 
-## User Endpoints
+### User Endpoints
 Get Available Grocery Items
 GET /api/user/items
 
-## Create Order
+### Create Order
 POST /api/user/orders
 ``{
   "items": [
